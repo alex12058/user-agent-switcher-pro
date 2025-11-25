@@ -1,4 +1,3 @@
-
 <p align="center">
    <img src="banners/marquee-promo-tile.png" alt="User Agent Switcher Pro Banner" width="100%">
 </p>
@@ -12,7 +11,7 @@ User Agent Switcher Pro is a powerful Chrome extension designed to give you full
 - **Advanced User-Agent Switching**: Instantly switch between a wide range of User-Agents, including search engine bots (Googlebot, Bingbot), social media bots (Twitterbot, Facebook), and various desktop/mobile browsers.
 - **Per-Site Configuration**: Set specific rules for individual websites. The extension remembers your preferences and automatically applies them when you visit the site.
 - **JavaScript Control**: Toggle JavaScript execution for specific domains to enhance privacy, performance, or bypass certain scripts.
-- **Cookie Management**: Granular control over cookies to improve privacy or test website behavior under different conditions.
+- **Cookie Control**: Block outgoing cookies for specific sites to test privacy and authentication scenarios. Incoming cookies from servers are still accepted and stored.
 - **Modern Interface**: A sleek, dark-themed UI designed for ease of use and quick access to essential settings.
 
 ## Installation
@@ -34,13 +33,13 @@ User Agent Switcher Pro is a powerful Chrome extension designed to give you full
 1. **Popup Menu**: Click the extension icon in your browser toolbar to access the quick settings popup.
    - Select a User-Agent from the dropdown to spoof your identity.
    - Toggle "Disable JavaScript" to block scripts for the current site.
-   - Toggle "Disable Cookies" to block cookies for the current site.
+   - Toggle "Disable Cookies" to block outgoing cookies for the current site.
    
-   ![Popup Screenshot](screenshots/popup-screenshot.png)
+   ![Popup Screenshot](screenshots/user-agent-test.png)
 
 2. **Options Page**: Right-click the extension icon and select "Options" to view and manage all your saved per-site configurations.
    
-   ![Options Screenshot](screenshots/options-screenshot.png)
+   ![Options Screenshot](screenshots/settings.png)
 
 ## Development
 

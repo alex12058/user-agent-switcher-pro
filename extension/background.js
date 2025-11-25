@@ -205,43 +205,6 @@ function updateJavaScriptSettings() {
     });
 }
 
-
-
-// Clear cookies for a specific domain
-async function clearCookiesForDomain(domain) {
-    try {
-        // Get all cookies for the domain
-        const cookies = await chrome.cookies.getAll({ domain: domain });
-
-        // Remove each cookie
-        for (const cookie of cookies) {
-            const protocol = cookie.secure ? 'https:' : 'http:';
-            const url = `${protocol}//${cookie.domain}${cookie.path}`;
-            await chrome.cookies.remove({
-                url: url,
-                name: cookie.name,
-                storeId: cookie.storeId
-            });
-        }
-
-        // Also try with www prefix
-        const wwwCookies = await chrome.cookies.getAll({ domain: `www.${domain}` });
-        for (const cookie of wwwCookies) {
-            const protocol = cookie.secure ? 'https:' : 'http:';
-            const url = `${protocol}//${cookie.domain}${cookie.path}`;
-            await chrome.cookies.remove({
-                url: url,
-                name: cookie.name,
-                storeId: cookie.storeId
-            });
-        }
-
-        console.log(`Cleared ${cookies.length + wwwCookies.length} cookies for ${domain}`);
-    } catch (e) {
-        console.error('Error clearing cookies:', e);
-    }
-}
-
 // Update declarativeNetRequest rules
 async function updateRules() {
     try {
@@ -279,7 +242,7 @@ async function updateRules() {
                 }
             }
 
-            // Remove Cookie header if cookies disabled
+            // Remove Cookie header if cookies disabled (block outgoing cookies only)
             if (siteSettings.disableCookies) {
                 requestHeaders.push({
                     header: 'Cookie',
@@ -287,20 +250,11 @@ async function updateRules() {
                 });
             }
 
-            const responseHeaders = [];
-            if (siteSettings.disableCookies) {
-                responseHeaders.push({
-                    header: 'Set-Cookie',
-                    operation: 'remove'
-                });
-            }
-
-            if (requestHeaders.length > 0 || responseHeaders.length > 0) {
+            if (requestHeaders.length > 0) {
                 const ruleAction = {
-                    type: 'modifyHeaders'
+                    type: 'modifyHeaders',
+                    requestHeaders: requestHeaders
                 };
-                if (requestHeaders.length > 0) ruleAction.requestHeaders = requestHeaders;
-                if (responseHeaders.length > 0) ruleAction.responseHeaders = responseHeaders;
 
                 // Assign two IDs per domain (domain and www.domain)
                 const id1 = nextId++;

@@ -58,8 +58,8 @@ function loadSites(siteSettings) {
             <tr>
                 <th>Domain</th>
                 <th>User Agent</th>
-                <th>JS Disabled</th>
-                <th>Cookies Disabled</th>
+                <th>Javascript Disabled</th>
+                <th>Outgoing Cookies Disabled</th>
                 <th>Actions</th>
             </tr>
         </thead>
