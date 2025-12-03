@@ -2,10 +2,16 @@
    <img src="banners/marquee-promo-tile.png" alt="User Agent and JS Manager Banner" width="100%">
 </p>
 
-
 # User Agent and JS Manager
 
 User Agent and JS Manager is a powerful Chrome extension designed to give you full control over your browsing identity and environment. Easily switch your User-Agent string, manage JavaScript execution, and control cookies on a per-site basis.
+
+[Download from the Chrome Web Store](https://chromewebstore.google.com/detail/user-agent-and-js-manager/jpfikdpcedjmdadbiihkneebogfdadgb)
+
+
+![Chrome Web Store Version](https://img.shields.io/chrome-web-store/v/jpfikdpcedjmdadbiihkneebogfdadgb?color=0074D9&style=flat-square)
+![Users](https://img.shields.io/chrome-web-store/users/jpfikdpcedjmdadbiihkneebogfdadgb?color=0074D9&style=flat-square)
+![Rating](https://img.shields.io/chrome-web-store/rating/jpfikdpcedjmdadbiihkneebogfdadgb?color=0074D9&style=flat-square)
 
 ## Features
 
